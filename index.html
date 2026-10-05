@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vanshavali – Apni jadon se judo</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600&family=Young+Serif&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Vanshavali</h1>
+  <div><span id="who"></span> <button id="logout" class="ghost" hidden>Logout</button></div>
+</header>
+
+<main id="auth">
+  <section class="hero">
+    <h2>Apne pura parivaar ki jadein, ek jagah.</h2>
+    <p>Pitaji, dada, pardada ke naam aur photo surakshit rakhein. Sirf wahi dekhega jise aap allow karein.</p>
+  </section>
+  <form id="authForm" class="panel">
+    <input id="name" placeholder="Aapka naam" hidden>
+    <input id="email" type="email" placeholder="Email" required>
+    <input id="pass" type="password" placeholder="Password (min 6 akshar)" required>
+    <button id="authBtn">Login</button>
+    <a id="switch" href="#">Naya account banayein</a>
+    <a id="forgot" href="#">Password bhool gaye?</a>
+  </form>
+  <form id="resetForm" class="panel" hidden>
+    <input id="np" type="password" placeholder="Naya password" minlength="6" required>
+    <button>Password badlein</button>
+  </form>
+  <div id="gbtn" class="gwrap"></div>
+</main>
+
+<main id="app" hidden>
+  <nav>
+    <button data-tab="mine">Mera parivaar</button>
+    <button data-tab="find">Logon ko khojein</button>
+    <button data-tab="req">Requests</button>
+  </nav>
+
+  <section class="pane" id="p-mine">
+    <form id="addForm" class="panel row">
+      <input name="name" placeholder="Ancestor ka naam" required>
+      <input name="relation" placeholder="Rishta (jaise Dada ji)">
+      <select name="parent_id" id="parentSel"></select>
+      <input name="photo" type="file" accept="image/jpeg,image/png,image/webp">
+      <button>Ancestor jodein</button>
+    </form>
+    <p class="count" id="count"></p>
+    <div class="tree" id="mineGrid"></div>
+  </section>
+
+  <section class="pane" id="p-find" hidden>
+    <div class="panel row">
+      <input id="q" placeholder="Naam ya ID se khojein (jaise VN3FA2B1)">
+      <button id="go">Khojein</button>
+    </div>
+    <div id="results"></div>
+    <div id="viewer"></div>
+  </section>
+
+  <section class="pane" id="p-req" hidden><div id="reqList"></div></section>
+</main>
+<div id="toast"></div>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="app.js"></script>
+</body>
+</html>
